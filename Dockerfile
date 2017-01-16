@@ -15,4 +15,6 @@ COPY start.sh /opt/
 
 RUN chmod u+x /opt/*.sh
 
+VOLUME /backup
+
 CMD ["/opt/start.sh"]
