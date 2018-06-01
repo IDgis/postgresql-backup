@@ -16,8 +16,7 @@ echo Performing remote backup: $(date)
 # loading settings
 . /etc/backup
 
-rm -fr /backup
-mkdir /backup
+rm -vfr /backup/*
 cd /backup
 
 # dump databases
