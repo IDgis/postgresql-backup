@@ -11,6 +11,7 @@ all_environment_values() {
 echo Generating config...
 
 # store database connection parameters for pg_dump
+rm ~/.pgpass
 for db in $(all_environment_values DATABASE); do
 	echo $db >> ~/.pgpass
 done
