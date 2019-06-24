@@ -25,7 +25,7 @@ while read db; do
 	
 	echo Dumping database ${db_parts[0]}:${db_parts[1]}/${db_parts[2]}...
 	
-	pg_dump \
+	/usr/lib/postgresql/${db_parts[5]}/bin/pg_dump \
 		-v \
 		-h ${db_parts[0]} \
 		-p  ${db_parts[1]} \
