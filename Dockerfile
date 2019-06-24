@@ -11,6 +11,8 @@ RUN \
 		duplicity \
 		lftp \
 		postgresql-client-9.5 \
+		postgresql-client-9.6 \
+		postgresql-client-10 \
 		postgresql-client-11 \
 		python-paramiko \
 		openssh-client \
