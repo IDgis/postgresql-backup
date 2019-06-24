@@ -10,7 +10,8 @@ RUN \
 		cron \
 		duplicity \
 		lftp \
-		postgresql-client \
+		postgresql-client-9.5 \
+		postgresql-client-11 \
 		python-paramiko \
 		openssh-client \
 	&& rm -rf /var/lib/apt/lists/*
