@@ -20,6 +20,7 @@ ssh-keyscan -p $SFTP_PORT $SFTP_HOST > ~/.ssh/known_hosts
 
 # Get back-up using duplicity
 duplicity restore \
+    --no-encryption \
     --force \
     sftp://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:$SFTP_PORT/$BACKUP_NAME \
     /backup
