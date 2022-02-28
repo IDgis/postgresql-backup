@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 if [ -f /var/run/backup.pid ]; then
 	if [ -d /proc/$(cat /var/run/backup.pid) ]; then
 		echo backup is already running... $(date)

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 all_environment_values() {
     ( set -o posix ; set ) \
         | grep $1 \
