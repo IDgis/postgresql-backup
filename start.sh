@@ -32,7 +32,7 @@ echo BACKUP_URL=sftp://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:$SFTP_PORT/$BACKUP_N
 if ! [ -f /opt/fifo ]; then
 	mkfifo /opt/fifo
 fi
-# tigger 'tail -f' to open fifo
+# trigger 'tail -f' to open fifo
 echo Logging started... > /opt/fifo &
 
 echo "00 0 * * * root /opt/backup.sh > /opt/fifo 2>&1" > /etc/crontab
