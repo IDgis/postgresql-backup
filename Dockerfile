@@ -14,6 +14,11 @@ RUN \
 		postgresql-client-9.6 \
 		postgresql-client-10 \
 		postgresql-client-11 \
+		postgresql-client-12 \
+		postgresql-client-13 \
+		postgresql-client-14 \
+		postgresql-client-15 \
+		postgresql-client-16 \
 		python3-paramiko \
 		openssh-client \
 	&& rm -rf /var/lib/apt/lists/*
