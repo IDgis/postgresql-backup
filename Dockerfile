@@ -4,7 +4,7 @@ RUN \
 	apt-get update \
 	&& apt-get install -y curl gnupg \
 	&& echo deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main > /etc/apt/sources.list.d/pgdg.list \
-	&& curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
+	&& curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | tee /etc/apt/trusted.gpg.d/postgresql.asc \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		cron \
