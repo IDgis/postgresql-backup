@@ -48,6 +48,7 @@ duplicity incremental \
 echo "Removing old backups..."
 duplicity remove-older-than \
 	--allow-source-mismatch \
+	--no-encryption \
 	14D \
 	--force \
 	"$BACKUP_URL"
