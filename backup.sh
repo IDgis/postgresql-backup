@@ -24,9 +24,9 @@ cd /backup
 # dump databases
 while read db; do
 	IFS=: db_parts=( $db )
-	
+
 	echo Dumping database ${db_parts[0]}:${db_parts[1]}/${db_parts[2]}...
-	
+
 	/usr/lib/postgresql/${db_parts[5]}/bin/pg_dump \
 		-v \
 		-h ${db_parts[0]} \
@@ -58,6 +58,6 @@ echo Backup files:
 du -h /backup/*
 
 # cleanup
-rm /var/run/backup.pid 
+rm /var/run/backup.pid
 
 echo Backup finished: $(date)
