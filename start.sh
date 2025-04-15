@@ -28,6 +28,11 @@ ssh-keyscan -p $SFTP_PORT $SFTP_HOST > ~/.ssh/known_hosts
 
 # store backup url
 echo BACKUP_URL=sftp://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:$SFTP_PORT/$BACKUP_NAME > /etc/backup
+if [[ -v PASSPHRASE ]]; then
+	echo PASSPHRASE=$PASSPHRASE >> /etc/backup
+else
+	echo NO_ENCRYPTION=true >> /etc/backup
+fi
 
 if ! [ -e /opt/fifo ]; then
 	mkfifo /opt/fifo

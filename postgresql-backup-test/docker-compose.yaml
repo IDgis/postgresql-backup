@@ -21,3 +21,4 @@ services:
       - SFTP_HOST=sftp
       - SFTP_PORT=22
       - BACKUP_NAME=backup/db
+      - PASSPHRASE=passphrase
