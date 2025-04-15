@@ -19,6 +19,7 @@ RUN \
 		postgresql-client-14 \
 		postgresql-client-15 \
 		postgresql-client-16 \
+		postgresql-client-17 \
 		python3-paramiko \
 		openssh-client \
 	&& rm -rf /var/lib/apt/lists/*
