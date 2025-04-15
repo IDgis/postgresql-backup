@@ -14,8 +14,8 @@ services:
     restart: always
     environment:
       # format: $DB_HOST:$DB_PORT:$DB_NAME:$DB_USER:$DB_PASSWORD:$POSTGRESQL_VERSION
-      - DATABASE_0=db:5432:db_0:postgres:postgres:11
-      - DATABASE_1=db:5432:db_1:postgres:postgres:11
+      - DATABASE_0=db:5432:db_0:postgres:postgres:13
+      - DATABASE_1=db:5432:db_1:postgres:postgres:13
       - SFTP_USER=sftp_user
       - SFTP_PASSWORD=sftp_password
       - SFTP_HOST=sftp
