@@ -2,29 +2,16 @@
 
 set -eu
 
-all_environment_values() {
-    ( set -o posix ; set ) \
-        | grep $1 \
-        | cut -d = -f 2
-}
+echo Restoring remote backup: $(date)
 
-# Store database connection parameters
-rm ~/.pgpass
-for db in $(all_environment_values DATABASE); do
-    echo $db >> ~/.pgpass
-done
-
-chmod 0600 ~/.pgpass
-
-# Store ssh key
-mkdir -p /root/.ssh
-ssh-keyscan -p $SFTP_PORT $SFTP_HOST > ~/.ssh/known_hosts
+# loading settings
+. /etc/backup
 
 # Get back-up using duplicity
 duplicity restore \
     --no-encryption \
     --force \
-    sftp://$SFTP_USER:$SFTP_PASSWORD@$SFTP_HOST:$SFTP_PORT/$BACKUP_NAME \
+    "$BACKUP_URL" \
     /backup
 
 # Restore databases
@@ -55,4 +42,4 @@ while read db; do
         -U "${db_parts[3]}"
 done < ~/.pgpass
 
-echo Back-up restored: $(date)
+echo Backup restored: $(date)
