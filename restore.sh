@@ -7,9 +7,17 @@ echo Restoring remote backup: $(date)
 # loading settings
 . /etc/backup
 
+if [[ -v PASSPHRASE ]]; then
+	echo Passphase configured
+fi
+
+if [[ -v NO_ENCRYPTION ]]; then
+	echo Encryption disabled
+fi
+
 # Get back-up using duplicity
 duplicity restore \
-    --no-encryption \
+    ${NO_ENCRYPTION:+--no-encryption} \
     --force \
     "$BACKUP_URL" \
     /backup

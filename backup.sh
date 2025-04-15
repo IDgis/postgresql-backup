@@ -18,6 +18,14 @@ echo Performing remote backup: $(date)
 # loading settings
 . /etc/backup
 
+if [[ -v PASSPHRASE ]]; then
+	echo Passphase configured
+fi
+
+if [[ -v NO_ENCRYPTION ]]; then
+	echo Encryption disabled
+fi
+
 rm -vfr /backup/*
 cd /backup
 
@@ -40,7 +48,7 @@ done < ~/.pgpass
 echo "Performing incremental backup..."
 duplicity incremental \
 	--allow-source-mismatch \
-	--no-encryption \
+	${NO_ENCRYPTION:+--no-encryption} \
 	--full-if-older-than=7D \
 	/backup \
 	"$BACKUP_URL"
@@ -48,7 +56,7 @@ duplicity incremental \
 echo "Removing old backups..."
 duplicity remove-older-than \
 	--allow-source-mismatch \
-	--no-encryption \
+	${NO_ENCRYPTION:+--no-encryption} \
 	14D \
 	--force \
 	"$BACKUP_URL"
