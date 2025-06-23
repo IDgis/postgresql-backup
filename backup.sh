@@ -20,6 +20,7 @@ echo Performing remote backup: $(date)
 
 if [[ -v PASSPHRASE ]]; then
 	echo Passphase configured
+	export PASSPHRASE
 fi
 
 if [[ -v NO_ENCRYPTION ]]; then
