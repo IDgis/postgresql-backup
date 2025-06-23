@@ -4,7 +4,7 @@
 - docker compose up -d
 
 # Manually run backup
-- docker compose exec backup bash -c "/opt/backup.sh > /opt/fifo 2>&1"
+- docker compose exec backup su - root -s /bin/bash -c "setsid /opt/backup.sh > /opt/fifo 2>&1 < /dev/null"
 
 # Check
 
