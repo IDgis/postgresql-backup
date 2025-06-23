@@ -32,4 +32,6 @@ RUN chmod u+x /opt/*.sh
 
 VOLUME /backup
 
+ENV SCHEDULE="00 0 * * *"
+
 CMD ["/opt/start.sh"]
