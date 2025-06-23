@@ -40,7 +40,8 @@ fi
 # trigger 'tail -f' to open fifo
 echo Logging started... > /opt/fifo &
 
-echo "00 0 * * * root /opt/backup.sh > /opt/fifo 2>&1" > /etc/crontab
+echo "Creating cron job with schedule: $SCHEDULE"
+echo "$SCHEDULE root /opt/backup.sh > /opt/fifo 2>&1" > /etc/crontab
 
 echo Starting cron...
 
