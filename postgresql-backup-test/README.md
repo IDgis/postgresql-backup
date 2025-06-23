@@ -3,6 +3,10 @@
 # Deploy
 - docker compose up -d
 
+The backup is scheduled on every hour. This can be configured differently by
+changing the SCHEDULE variable, e.g. to perform a backup every minute:
+- SCHEDULE="* * * * *" docker compose up -d
+
 # Manually run backup
 - docker compose exec backup su - root -s /bin/bash -c "setsid /opt/backup.sh > /opt/fifo 2>&1 < /dev/null"
 
